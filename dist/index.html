@@ -4,41 +4,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Restaurant Page</title>
 </head>
 <body>
     <div id="content">
         <!--This is a temporary body-->
-        <header>
-            <a href="">Home</a>
-            <a href="">Menu</a>
-            <a href="">About</a>
+        <header class="nav-bar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
         </header>
-        <section>
-            <h2>Lakay Restaurant</h2>
-            <div>When you come here, we want you to feel at home</div>
-            <div>
-                <h4>Hours</h4>
-                <ul>
-                    <li>Monday - Thursday: 10am - 11pm</li>
-                    <li>Friday - Sunday: 10am - 1am</li>
-                </ul>
-            </div>
-        </section>
-        <section>
-            <h2>Menu</h2>
-            <div>
-                <p>Di Ri (Haitian Rice)</p>
-                <p>Soup</p>
-                <p>Plantain Sandwich</p>
-            </div>
-        </section>
-        <section>
-            <h2>About</h2>
-            <p>We are a family owned business. Inspired by the cuisine of my culture. We try give a new twist to Haitian cuisine.</p>
-            <p>We are located at X</p>
-            <p>Call in an order at 561-123-4567</p>
-        </section>
+        <div class="container">
+            <section class="home-body">
+                <h2>Lakay Restaurant</h2>
+                <p>When you come here, we want you to feel at home!</p>
+                <div>
+                    <h4>Hours</h4>
+                    <p>Monday - Thursday: 10am - 11pm</p>
+                    <p>Friday - Sunday: 10am - 1am</p>
+                </div>
+            </section>
+            <section>
+                <h2>Menu</h2>
+                <div class="menu-body">
+                    <div class="card">
+                        <img src="images/rice.jpg" alt="plate of rice">
+                        <div class="content">
+                            <h4>Haitian Rice</h4>
+                            <p>Choose Chicken, Fish, or Vegetables</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/soup.jpg" alt="bowl of soup">
+                        <div class="content">
+                            <h4>Soup</h4>
+                            <p>Pumpkin Soup or Soup of the day</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/sandwich.jpg" alt="man holding sandwich">
+                        <div class="content">
+                            <h4>Sandwiches</h4>
+                            <p>Try our plaintain sandwiches, with choice of protein.</p>
+                            <p>Loaded with peppers, onions, and coleslaw</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/sides.jpg" alt="plate of plantains">
+                        <div class="content">
+                            <h4>Sides</h4>
+                            <p>Plaintains, Small Rice and Beans, Tassot, Griot</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/reg-drink.jpg" alt="coconut water">
+                        <div class="content">
+                            <h4>Drinks</h4>
+                            <p>Coconut Water, Regular Water, and Pepsi Drinks</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/drink.jpg" alt="alcholic drink">
+                        <div class="content">
+                            <h4>Alcoholic Drinks</h4>
+                            <p>Menu Coming Soon!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="contact-body">
+                <h2>About</h2>
+                <p>We are a family owned business. Inspired by the cuisine of my culture. We try give a new twist to Haitian cuisine.</p>
+                <p>We are located at X</p>
+                <p>Call in an order at 561-123-4567</p>
+            </section>
+        </div>
         <footer>
             <h4>Created by The Monist</h4>
         </footer>
