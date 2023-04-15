@@ -1,5 +1,4 @@
 import loadHome from "./home";
-import loadAbout from "./about";
 import loadContact from "./contact";
 import loadMenu from "./menu";
 
@@ -26,15 +25,6 @@ function createNav() {
         loadMenu();
     });
 
-    const aboutTab = document.createElement('button');
-    aboutTab.classList.add('nav-button');
-    aboutTab.textContent = "About";
-    aboutTab.addEventListener("click", (e) => {
-        if (e.target.classList.contains("active")) return;
-        setActiveButton(aboutTab);
-        loadAbout();
-    });
-
     const contactTab = document.createElement('button');
     contactTab.classList.add('nav-button');
     contactTab.textContent = "Contact";
@@ -46,7 +36,6 @@ function createNav() {
 
     nav.appendChild(homeTab);
     nav.appendChild(menuTab);
-    nav.appendChild(aboutTab);
     nav.appendChild(contactTab);
 
     return nav
