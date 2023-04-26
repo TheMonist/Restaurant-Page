@@ -13,6 +13,26 @@ function createMenu() {
     return menu
 }
 
+function createMenuItem(name, description, price) {
+    const menuName = document.createElement('h4');
+    menuName.textContent = title;
+    menuName.appendChild();
+
+    const menuDescription = document.createElement('p');
+    menuDescription.textContent = description;
+    menuTitle.appendChild();
+
+    const menuPrice = document.createElement('p');
+    menuPrice.textContent = price;
+    menuPrice.appendChild();
+
+    const menuImage = document.createElement('img');
+    menuImage.src `image/${name.toLowerCase()}.jpg`
+    menuImage.alt = `${name}`
+
+    return createMenuItem
+}
+
 function loadMenu() {
     const main = document.getElementById('main');
     main.textContent = "";
