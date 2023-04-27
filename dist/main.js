@@ -54,26 +54,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function createAbout() {
-    const about = document.createElement('div');
-
-    return about
-}
-
-function loadAbout() {
-    //stuff here
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadAbout);
-
-/***/ }),
-/* 3 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 function createContact() {
     const contact = document.createElement('div');
     contact.classList.add('contact-body');
@@ -83,7 +63,7 @@ function createContact() {
     contactHeader.appendChild(contact);
 
     const blurb = document.createElement('p');
-    blurb.textContent = "e are a family owned business. Inspired by the cuisine of my culture. We try give a new twist to Haitian cuisine.";
+    blurb.textContent = "We are a family owned business. Inspired by the cuisine of my culture. We try give a new twist to Haitian cuisine.";
     blurb.appendChild(contact);
 
     const firstLine = document.createElement('p');
@@ -110,7 +90,7 @@ function loadContact() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadContact);
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -119,12 +99,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function createMenu() {
     const menu = document.createElement('div');
+    menu.classList.add('menu-body');
+
+    menu.appendChild(
+        createMenuItem("Rice", "Choose Chicken, Fish, or Vegtables", "$15.99")
+    );
+
+    menu.appendChild(
+        createMenuItem("Soup", "Pumpkin Soup or Soup of the Day", "$7.99")
+    );
+
+    menu.appendChild(
+        createMenuItem("Sandwiches", "Try Our Plaintain Sandwiches, with Choice of Protein", "$13.99")
+    );
+
+    menu.appendChild(
+        createMenuItem("Sides", "Plaintains, Small Rice and Beans, Tassot, Griot", "$4.99")
+    );
+    
+//change from img from reg-drink to drink
+    menu.appendChild(
+        createMenuItem("Drinks", "Coconut Water, Regular Water, and Pepsi Drinks", "$2.29")
+    );
+
+//change img from drink to cocktails
+    menu.appendChild(
+        createMenuItem("Cocktails", "Menu Comming Soon!")
+    );
 
     return menu
 }
 
+function createMenuItem(name, description, price) {
+    const menuCard = document.createElement('div');
+    menuCard.classList.add('card');
+    menuCard.appendChild(menu);
+
+    const content = document.createElement('div');
+    content.classList.add('content');
+    content.appendChild(menuCard);
+
+    const menuImage = document.createElement('img');
+    menuImage.src `image/${name.toLowerCase()}.jpg`
+    menuImage.alt = `${name}`
+    menuCard.appendChild(menuImage);
+
+    const menuName = document.createElement('h4');
+    menuName.textContent = title;
+    menuCard.appendChild(menuName);
+
+    const menuDescription = document.createElement('p');
+    menuDescription.textContent = description;
+    menuCard.appendChild(menuDescription);
+
+    const menuPrice = document.createElement('p');
+    menuPrice.textContent = price;
+    menuCard.appendChild(menuPrice);
+
+    return createMenuItem
+}
+
 function loadMenu() {
-    //stuff here
+    const main = document.getElementById('main');
+    main.textContent = "";
+    main.appendChild(createMenu());
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadMenu);
@@ -194,10 +232,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-
+/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
 
 
 
@@ -222,16 +258,7 @@ function createNav() {
     menuTab.addEventListener("click", (e) => {
         if (e.target.classList.contains("active")) return;
         setActiveButton(menuTab);
-        (0,_menu__WEBPACK_IMPORTED_MODULE_3__["default"])();
-    });
-
-    const aboutTab = document.createElement('button');
-    aboutTab.classList.add('nav-button');
-    aboutTab.textContent = "About";
-    aboutTab.addEventListener("click", (e) => {
-        if (e.target.classList.contains("active")) return;
-        setActiveButton(aboutTab);
-        (0,_about__WEBPACK_IMPORTED_MODULE_1__["default"])();
+        (0,_menu__WEBPACK_IMPORTED_MODULE_2__["default"])();
     });
 
     const contactTab = document.createElement('button');
@@ -240,12 +267,11 @@ function createNav() {
     contactTab.addEventListener("click", (e) => {
         if (e.target.classList.contains("active")) return;
         setActiveButton(contactTab);
-        (0,_contact__WEBPACK_IMPORTED_MODULE_2__["default"])();
+        (0,_contact__WEBPACK_IMPORTED_MODULE_1__["default"])();
     });
 
     nav.appendChild(homeTab);
     nav.appendChild(menuTab);
-    nav.appendChild(aboutTab);
     nav.appendChild(contactTab);
 
     return nav

@@ -7,7 +7,7 @@ function createContact() {
     contactHeader.appendChild(contact);
 
     const blurb = document.createElement('p');
-    blurb.textContent = "e are a family owned business. Inspired by the cuisine of my culture. We try give a new twist to Haitian cuisine.";
+    blurb.textContent = "We are a family owned business. Inspired by the cuisine of my culture. We try give a new twist to Haitian cuisine.";
     blurb.appendChild(contact);
 
     const firstLine = document.createElement('p');
