@@ -62,7 +62,7 @@ function createMain() {
 }
 
 function initializeSite() {
-    const content = document.querySelector('content');
+    const content = document.querySelector('#content');
 
     content.appendChild(createNav);
     content.appendChild(createMain);
