@@ -1,69 +1,66 @@
-function createMenu() {
-    const menu = document.createElement('div');
-    menu.classList.add('menu-body');
+const loadMenu = (() => {
+    const contentContainer = document.querySelector("#content");
 
-    menu.appendChild(
-        createMenuItem("Rice", "Choose Chicken, Fish, or Vegtables", "$15.99")
-    );
+    const menu = document.createElement("main");
+    menu.setAttribute("id", "menu");
+    menu.innerHTML = `
+        <main id="menu">
+            <h2>Menu</h2>
+            <div class="menu-body">
+                <div class="card">
+                    <img src="images/rice.jpg" alt="plate of rice">
+                    <div class="content">
+                        <h4>Haitian Rice</h4>
+                        <p>Choose Chicken, Fish, or Vegetables</p>
+                        <p>Comes with Pikliz</p>
+                        <p>$15.99</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/soup.jpg" alt="bowl of soup">
+                    <div class="content">
+                        <h4>Soup</h4>
+                        <p>Pumpkin Soup or Soup of the Day</p>
+                        <p>$7.99</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/sandwich.jpg" alt="man holding sandwich">
+                    <div class="content">
+                        <h4>Sandwiches</h4>
+                        <p>Try Our Plaintain Sandwiches, with Choice of Protein.</p>
+                        <p>Loaded with Peppers, Onions, and Coleslaw.</p>
+                        <p>Comes with Fries, Salad, or Plantains.</p>
+                        <p>$13.99</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/sides.jpg" alt="plate of plantains">
+                    <div class="content">
+                        <h4>Sides</h4>
+                        <p>Plaintains, Small Rice and Beans, Tassot, Griot</p>
+                         <p>$4.99</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/reg-drink.jpg" alt="coconut water">
+                    <div class="content">
+                        <h4>Drinks</h4>
+                        <p>Coconut Water, Regular Water, and Pepsi Drinks</p>
+                        <p>$1.99</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/drink.jpg" alt="alcholic drink">
+                    <div class="content">
+                        <h4>Alcoholic Drinks</h4>
+                        <p>Menu Coming Soon!</p>
+                    </div>
+                </div>
+            </div>
+        </main>`;
 
-    menu.appendChild(
-        createMenuItem("Soup", "Pumpkin Soup or Soup of the Day", "$7.99")
-    );
+    contentContainer.appendChild(menu);
+})();
 
-    menu.appendChild(
-        createMenuItem("Sandwiches", "Try Our Plaintain Sandwiches, with Choice of Protein", "$13.99")
-    );
-
-    menu.appendChild(
-        createMenuItem("Sides", "Plaintains, Small Rice and Beans, Tassot, Griot", "$4.99")
-    );
-    
-//change from img from reg-drink to drink
-    menu.appendChild(
-        createMenuItem("Drinks", "Coconut Water, Regular Water, and Pepsi Drinks", "$2.29")
-    );
-
-//change img from drink to cocktails
-    menu.appendChild(
-        createMenuItem("Cocktails", "Menu Comming Soon!")
-    );
-
-    return menu
-}
-
-function createMenuItem(name, description, price) {
-    const menuCard = document.createElement('div');
-    menuCard.classList.add('card');
-    menuCard.appendChild(menu);
-
-    const content = document.createElement('div');
-    content.classList.add('content');
-    content.appendChild(menuCard);
-
-    const menuImage = document.createElement('img');
-    menuImage.src `image/${name.toLowerCase()}.jpg`
-    menuImage.alt = `${name}`
-    menuCard.appendChild(menuImage);
-
-    const menuName = document.createElement('h4');
-    menuName.textContent = title;
-    menuCard.appendChild(menuName);
-
-    const menuDescription = document.createElement('p');
-    menuDescription.textContent = description;
-    menuCard.appendChild(menuDescription);
-
-    const menuPrice = document.createElement('p');
-    menuPrice.textContent = price;
-    menuCard.appendChild(menuPrice);
-
-    return createMenuItem
-}
-
-function loadMenu() {
-    const main = document.getElementById('main');
-    main.textContent = "";
-    main.appendChild(createMenu());
-}
-
-export default loadMenu;
+export { loadMenu };

@@ -7,44 +7,27 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "loadHeader": () => (/* binding */ loadHeader)
 /* harmony export */ });
-function createHome() {
-    const home = document.createElement('div');
-    home.classList.add('home-body');
+const loadHeader = (() => {
+    const contentContainer = document.querySelector("#content");
 
-    //for intro
-    const introPara = document.createElement('p');
-    introPara.textContent = "When you come here, we want you to feel at home!";
-    introPara.appendChild(home);
+    const header = document.createElement("header");
 
-    //for div container
-    const divContainer = document.createElement('div');
-    divContainer.appendChild(home);
+    header.innerHTML = `
+        <header class="nav-bar">
+            <h2>Lakay Restaurant</h2>
+            <ul>
+                <li><a href="#home" class="tab active">Home</a></li>
+                <li><a href="#menu" class="tab">Menu</a></li>
+                <li><a href="#contact" class="tab">About</a></li>
+            </ul>
+        </header>`;
 
-    //for hours
-    const hoursHeader = document.createElement('h3');
-    hoursHeader.textContent = "Restaurant Hours";
-    hoursHeader.appendChild(divContainer);
+    contentContainer.appendChild(header);
+})();
 
-    const hoursOne = document.createElement('p');
-    hoursOne.textContent = "Monday  - Thursday: 10am - 11pm";
-    hoursOne.appendChild(divContainer);
 
-    const hoursTwo = document.createElement('p');
-    hoursTwo.textContent = "Friday - Sunday: 10am - 1am"
-    hoursTwo.appendChild(divContainer);
-
-  return home;
-}
-
-function loadHome() {
-    const main = document.getElementById('main');
-    main.textContent = "";
-    main.appendChild(createHome());
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadHome);
 
 /***/ }),
 /* 2 */
@@ -52,42 +35,27 @@ function loadHome() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "loadHome": () => (/* binding */ loadHome)
 /* harmony export */ });
-function createContact() {
-    const contact = document.createElement('div');
-    contact.classList.add('contact-body');
+const loadHome = (() => {
+  const contentContainer = document.querySelector("#content");
 
-    const contactHeader = document.createElement('h2');
-    contactHeader.textContact = "About";
-    contactHeader.appendChild(contact);
+  const home = document.createElement("main");
+  home.setAttribute("id", "home");
+  home.innerHTML = `
+    <main id="home" class="home-body">
+      <h2>Lakay Restaurant</h2>
+      <p>When you come here, we want you to feel at home!</p>
+        <div>
+          <h3>Restaurant Hours</h3>
+            <p>Monday - Thursday: 10am - 11pm</p>
+            <p>Friday - Sunday: 10am - 1am</p>
+        </div>
+    </main>`;
 
-    const blurb = document.createElement('p');
-    blurb.textContent = "We are a family owned business. Inspired by the cuisine of my culture. We try give a new twist to Haitian cuisine.";
-    blurb.appendChild(contact);
+  contentContainer.appendChild(home);
+})();
 
-    const firstLine = document.createElement('p');
-    firstLine.textContent = "100 Boynton Beach Blvd";
-    firstLine.appendChild('contact');
-
-    const secondLine = document.createElement('p');
-    secondLine.textContent = "Boynton Beach, FL";
-    secondLine.appendChild('contact')
-
-    const phone = document.createElement('p');
-    phone.textContent = "561-123-4567";
-    phone.appendChild(contact);
-
-    return contact;
-}
-
-function loadContact() {
-    const main = document.getElementById('main');
-    main.textContent = "";
-    main.appendChild(createContact());
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadContact);
 
 /***/ }),
 /* 3 */
@@ -95,77 +63,124 @@ function loadContact() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "loadContact": () => (/* binding */ loadContact)
 /* harmony export */ });
-function createMenu() {
-    const menu = document.createElement('div');
-    menu.classList.add('menu-body');
+const loadContact = (() => {
+    const contentContainer = document.querySelector("#content");
 
-    menu.appendChild(
-        createMenuItem("Rice", "Choose Chicken, Fish, or Vegtables", "$15.99")
-    );
-
-    menu.appendChild(
-        createMenuItem("Soup", "Pumpkin Soup or Soup of the Day", "$7.99")
-    );
-
-    menu.appendChild(
-        createMenuItem("Sandwiches", "Try Our Plaintain Sandwiches, with Choice of Protein", "$13.99")
-    );
-
-    menu.appendChild(
-        createMenuItem("Sides", "Plaintains, Small Rice and Beans, Tassot, Griot", "$4.99")
-    );
+    const contact = document.createElement("main");
+    contact.setAttribute("id", "contact");
+    contact.innerHTML = `
+    <main id="contact" class="contact-body">
+        <h2>About</h2>
+        <p>We are a family owned business. Inspired by the cuisine of my culture. We try give a new twist to Haitian cuisine.</p>
+        <p>100 Boynton Beach Blvd</p>
+        <p>Boynton Beach, FL 33435</p>
+        <p>561-123-4567</p>
+        <p>We are located on the Corner of Boynton Beach Blvd and Secrest Blvd</p>
+    </main>`;
     
-//change from img from reg-drink to drink
-    menu.appendChild(
-        createMenuItem("Drinks", "Coconut Water, Regular Water, and Pepsi Drinks", "$2.29")
-    );
+    contentContainer.appendChild(contact);
+})();
 
-//change img from drink to cocktails
-    menu.appendChild(
-        createMenuItem("Cocktails", "Menu Comming Soon!")
-    );
 
-    return menu
-}
 
-function createMenuItem(name, description, price) {
-    const menuCard = document.createElement('div');
-    menuCard.classList.add('card');
-    menuCard.appendChild(menu);
+/***/ }),
+/* 4 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-    const content = document.createElement('div');
-    content.classList.add('content');
-    content.appendChild(menuCard);
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "loadMenu": () => (/* binding */ loadMenu)
+/* harmony export */ });
+const loadMenu = (() => {
+    const contentContainer = document.querySelector("#content");
 
-    const menuImage = document.createElement('img');
-    menuImage.src `image/${name.toLowerCase()}.jpg`
-    menuImage.alt = `${name}`
-    menuCard.appendChild(menuImage);
+    const menu = document.createElement("main");
+    menu.setAttribute("id", "menu");
+    menu.innerHTML = `
+        <main id="menu">
+            <h2>Menu</h2>
+            <div class="menu-body">
+                <div class="card">
+                    <img src="images/rice.jpg" alt="plate of rice">
+                    <div class="content">
+                        <h4>Haitian Rice</h4>
+                        <p>Choose Chicken, Fish, or Vegetables</p>
+                        <p>Comes with Pikliz</p>
+                        <p>$15.99</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/soup.jpg" alt="bowl of soup">
+                    <div class="content">
+                        <h4>Soup</h4>
+                        <p>Pumpkin Soup or Soup of the Day</p>
+                        <p>$7.99</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/sandwich.jpg" alt="man holding sandwich">
+                    <div class="content">
+                        <h4>Sandwiches</h4>
+                        <p>Try Our Plaintain Sandwiches, with Choice of Protein.</p>
+                        <p>Loaded with Peppers, Onions, and Coleslaw.</p>
+                        <p>Comes with Fries, Salad, or Plantains.</p>
+                        <p>$13.99</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/sides.jpg" alt="plate of plantains">
+                    <div class="content">
+                        <h4>Sides</h4>
+                        <p>Plaintains, Small Rice and Beans, Tassot, Griot</p>
+                         <p>$4.99</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/reg-drink.jpg" alt="coconut water">
+                    <div class="content">
+                        <h4>Drinks</h4>
+                        <p>Coconut Water, Regular Water, and Pepsi Drinks</p>
+                        <p>$1.99</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/drink.jpg" alt="alcholic drink">
+                    <div class="content">
+                        <h4>Alcoholic Drinks</h4>
+                        <p>Menu Coming Soon!</p>
+                    </div>
+                </div>
+            </div>
+        </main>`;
 
-    const menuName = document.createElement('h4');
-    menuName.textContent = title;
-    menuCard.appendChild(menuName);
+    contentContainer.appendChild(menu);
+})();
 
-    const menuDescription = document.createElement('p');
-    menuDescription.textContent = description;
-    menuCard.appendChild(menuDescription);
 
-    const menuPrice = document.createElement('p');
-    menuPrice.textContent = price;
-    menuCard.appendChild(menuPrice);
 
-    return createMenuItem
-}
+/***/ }),
+/* 5 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-function loadMenu() {
-    const main = document.getElementById('main');
-    main.textContent = "";
-    main.appendChild(createMenu());
-}
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "loadFooter": () => (/* binding */ loadFooter)
+/* harmony export */ });
+const loadFooter = (() => {
+    const contentContainer = document.querySelector("#content");
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadMenu);
+    const footer = document.createElement("footer");
+    footer.innerHTML = `
+        <footer>
+            <h3>Created by The Monist</h3>
+        </footer>`;
+
+    contentContainer.appendChild(footer)
+})();
+
+
 
 /***/ })
 /******/ 	]);
@@ -228,88 +243,29 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
+/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
+/* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
 
 
 
 
-//you might need to make a function to export here
-function createNav() {
-    const nav = document.createElement('nav');
 
-    const homeTab = document.createElement('button');
-    //you have this as an a and li element
-    homeTab.classList.add('nav-button');
-    homeTab.textContent = "Home";
-    homeTab.addEventListener("click", (e) => {
-        if (e.target.classList.contains("active")) return;
-        setActiveButton(homeTab);
-        (0,_home__WEBPACK_IMPORTED_MODULE_0__["default"])();
+
+const tabs = document.querySelectorAll(".tab");
+tabs.forEach((clickedTab) => {
+    clickedTab.addEventListener("click", () => {
+        tabs.forEach(tab => {
+            tab.classList.remove("active");
+        });
     });
 
-    const menuTab = document.createElement('button');
-    menuTab.classList.add('nav-button');
-    menuTab.textContent = "Menu";
-    menuTab.addEventListener("click", (e) => {
-        if (e.target.classList.contains("active")) return;
-        setActiveButton(menuTab);
-        (0,_menu__WEBPACK_IMPORTED_MODULE_2__["default"])();
-    });
+    clickedTab.classList.add("active");
+});
 
-    const contactTab = document.createElement('button');
-    contactTab.classList.add('nav-button');
-    contactTab.textContent = "Contact";
-    contactTab.addEventListener("click", (e) => {
-        if (e.target.classList.contains("active")) return;
-        setActiveButton(contactTab);
-        (0,_contact__WEBPACK_IMPORTED_MODULE_1__["default"])();
-    });
-
-    nav.appendChild(homeTab);
-    nav.appendChild(menuTab);
-    nav.appendChild(contactTab);
-
-    return nav
-}
-
-//function to switch tabs
-function setActiveButton(button) {
-    const buttons = document.querySelectorAll('.nav-button');
-
-    buttons.forEach((button) => {
-        if (button !== this) {
-            button.classList.remove("active");
-        }
-    });
-
-    button.classList.add("active");
-};
-
-function createMain() {
-    const main = document.createElement('main');
-    main.classList.add('main');
-    main.setAttribute('id', 'main');
-    return main;
-}
-
-function initializeSite() {
-    const content = document.querySelector('#content');
-
-    content.appendChild(createNav);
-    content.appendChild(createMain);
-
-    setActiveButton(document.querySelector('.nav-button'));
-    (0,_home__WEBPACK_IMPORTED_MODULE_0__["default"])();
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (initializeSite); 
-
- console.log("This works");
+console.log("This works");
 })();
 
 /******/ })()
