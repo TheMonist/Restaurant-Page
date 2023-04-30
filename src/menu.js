@@ -4,7 +4,7 @@ const loadMenu = (() => {
     const menu = document.createElement("main");
     menu.setAttribute("id", "menu");
     menu.innerHTML = `
-        <main id="menu">
+        <main id="menu" class="navContent">
             <h2>Menu</h2>
             <div class="menu-body">
                 <div class="card">

@@ -4,7 +4,7 @@ const loadHome = (() => {
   const home = document.createElement("main");
   home.setAttribute("id", "home");
   home.innerHTML = `
-    <main id="home" class="home-body">
+    <main id="home" class="home-body navContent">
       <h2>Lakay Restaurant</h2>
       <p>When you come here, we want you to feel at home!</p>
         <div>

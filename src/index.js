@@ -6,13 +6,16 @@ import { loadFooter } from "./footer"
 
 const tabs = document.querySelectorAll(".tab");
 tabs.forEach((clickedTab) => {
+    // Add onClick event listener on each tab
     clickedTab.addEventListener("click", () => {
+        // Remove the active class from all the tabs (this acts as a "hard" reset)
         tabs.forEach(tab => {
             tab.classList.remove("active");
         });
-    });
 
-    clickedTab.classList.add("active");
+        // Add the active class on the clicked tab
+        clickedTab.classList.add("active");
+    });
 });
 
 console.log("This works");

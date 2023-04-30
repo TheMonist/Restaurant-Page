@@ -13,15 +13,12 @@ const loadHeader = (() => {
     const contentContainer = document.querySelector("#content");
 
     const header = document.createElement("header");
-
     header.innerHTML = `
         <header class="nav-bar">
             <h2>Lakay Restaurant</h2>
-            <ul>
-                <li><a href="#home" class="tab active">Home</a></li>
-                <li><a href="#menu" class="tab">Menu</a></li>
-                <li><a href="#contact" class="tab">About</a></li>
-            </ul>
+            <button class="tab active" data-tab-target="#home">Home</button>
+            <button class="tab" data-tab-target="#menu">Menu</button>
+            <button class="tab" data-tab-target="#contact">About</button>
         </header>`;
 
     contentContainer.appendChild(header);
@@ -43,7 +40,7 @@ const loadHome = (() => {
   const home = document.createElement("main");
   home.setAttribute("id", "home");
   home.innerHTML = `
-    <main id="home" class="home-body">
+    <main id="home" class="home-body navContent">
       <h2>Lakay Restaurant</h2>
       <p>When you come here, we want you to feel at home!</p>
         <div>
@@ -63,34 +60,6 @@ const loadHome = (() => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "loadContact": () => (/* binding */ loadContact)
-/* harmony export */ });
-const loadContact = (() => {
-    const contentContainer = document.querySelector("#content");
-
-    const contact = document.createElement("main");
-    contact.setAttribute("id", "contact");
-    contact.innerHTML = `
-    <main id="contact" class="contact-body">
-        <h2>About</h2>
-        <p>We are a family owned business. Inspired by the cuisine of my culture. We try give a new twist to Haitian cuisine.</p>
-        <p>100 Boynton Beach Blvd</p>
-        <p>Boynton Beach, FL 33435</p>
-        <p>561-123-4567</p>
-        <p>We are located on the Corner of Boynton Beach Blvd and Secrest Blvd</p>
-    </main>`;
-    
-    contentContainer.appendChild(contact);
-})();
-
-
-
-/***/ }),
-/* 4 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "loadMenu": () => (/* binding */ loadMenu)
 /* harmony export */ });
 const loadMenu = (() => {
@@ -99,7 +68,7 @@ const loadMenu = (() => {
     const menu = document.createElement("main");
     menu.setAttribute("id", "menu");
     menu.innerHTML = `
-        <main id="menu">
+        <main id="menu" class="navContent">
             <h2>Menu</h2>
             <div class="menu-body">
                 <div class="card">
@@ -156,6 +125,34 @@ const loadMenu = (() => {
         </main>`;
 
     contentContainer.appendChild(menu);
+})();
+
+
+
+/***/ }),
+/* 4 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "loadContact": () => (/* binding */ loadContact)
+/* harmony export */ });
+const loadContact = (() => {
+    const contentContainer = document.querySelector("#content");
+
+    const contact = document.createElement("main");
+    contact.setAttribute("id", "contact");
+    contact.innerHTML = `
+    <main id="contact" class="contact-body navContent">
+        <h2>About</h2>
+        <p>We are a family owned business. Inspired by the cuisine of my culture. We try give a new twist to Haitian cuisine.</p>
+        <p>100 Boynton Beach Blvd</p>
+        <p>Boynton Beach, FL 33435</p>
+        <p>561-123-4567</p>
+        <p>We are located on the Corner of Boynton Beach Blvd and Secrest Blvd</p>
+    </main>`;
+    
+    contentContainer.appendChild(contact);
 })();
 
 
@@ -245,8 +242,8 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
 
 
@@ -256,13 +253,16 @@ __webpack_require__.r(__webpack_exports__);
 
 const tabs = document.querySelectorAll(".tab");
 tabs.forEach((clickedTab) => {
+    // Add onClick event listener on each tab
     clickedTab.addEventListener("click", () => {
+        // Remove the active class from all the tabs (this acts as a "hard" reset)
         tabs.forEach(tab => {
             tab.classList.remove("active");
         });
-    });
 
-    clickedTab.classList.add("active");
+        // Add the active class on the clicked tab
+        clickedTab.classList.add("active");
+    });
 });
 
 console.log("This works");
