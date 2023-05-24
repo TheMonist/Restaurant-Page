@@ -4,17 +4,18 @@ import { loadMenu } from "./menu";
 import { loadContact } from "./contact";
 import { loadFooter } from "./footer"
 
-const tabs = document.querySelectorAll(".tab");
-tabs.forEach((clickedTab) => {
+const tabs = document.querySelectorAll("[data-tab-target]");
+tabs.forEach((tab) => {
     // Add onClick event listener on each tab
     clickedTab.addEventListener("click", () => {
         // Remove the active class from all the tabs (this acts as a "hard" reset)
-        tabs.forEach(tab => {
-            tab.classList.remove("active");
+        const target = document.querySelector(tab.dataset.tab.tabTarget);
+        tabs.forEach((tabContent) => {
+            tabContent.classList.remove("active");
         });
 
         // Add the active class on the clicked tab
-        clickedTab.classList.add("active");
+        target.classList.add("active");
     });
 });
 
